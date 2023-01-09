@@ -36,6 +36,10 @@ app.post('/', async (req, res) => {
         await sendDiscordMessage(`> the card **${cardName}** has been started! \n > good luck meus companheiros **${users}**!`)
         return;
       }
+      if(type === "tests") {
+        await sendDiscordMessage(`> the card **${cardName}** has been put in tests! \n > lets test them meus compatriotas **${users}**!`)
+        return
+      }
       if(type === 'any') {
         await sendDiscordMessage(`> ${message}`)
       }
