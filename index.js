@@ -19,7 +19,7 @@ async function sendDiscordMessage(message) {
 
 app.post('/', async (req, res) => {
   try {
-      const { cardName, users, type } = req.body
+      const { cardName, users, type, message } = req.body
       if(type === 'ended') {
         await sendDiscordMessage(`> the card **${cardName}** has been ended! \n > great job nossos queridos zé gotinhas **${users}**!`)
         return;
@@ -28,7 +28,10 @@ app.post('/', async (req, res) => {
         await sendDiscordMessage(`> the card **${cardName}** has been started! \n > good luck meus companheiros **${users}**!`)
         return;
       }
-      return res.status(200)
+      if(type === 'any') {
+        await sendDiscordMessage(`> ${message}`)
+      }
+      return res.status(200).json({ message: 'ok' })
   } catch (error) {
     console.log(error);
   }
