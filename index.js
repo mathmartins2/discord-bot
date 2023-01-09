@@ -14,7 +14,8 @@ app.post('/', async (req, res) => {
       const { cardName, users } = req.body
       await axios.post('https://discord.com/api/webhooks/1062080343068377190/LGJn2Aoh5LtQypg9_ApKz1wlvo7vDOenRkciPaP2rP4Zqfd5JdMu-dNfj5yE3tZXc_qp', {
         username: 'Maconhas e drogas',
-        content: `the card ${cardName} has been ended! great job ${users}`
+        content: `the card ${cardName} has been ended!
+         great job ${users}`
       })
       res.status(200)
   } catch (error) {
