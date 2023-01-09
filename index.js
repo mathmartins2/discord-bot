@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 async function sendDiscordMessage(message) {
   await axios.post(process.env.DISCORD_URL, {
-    username: 'Spidey Bot',
+    username: 'LULA CAMARADA',
     content: message
   })
 }
