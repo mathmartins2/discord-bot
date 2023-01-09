@@ -21,7 +21,7 @@ app.post('/', async (req, res) => {
   try {
       const { cardName, users, type } = req.body
       if(type === 'ended') {
-        await sendDiscordMessage(`> the card **${cardName}** has been ended! \n > great job **${users}**!`)
+        await sendDiscordMessage(`> the card **${cardName}** has been ended! \n > great job meu amigo zé gotinha **${users}**!`)
         return;
       }
       if(type === 'started') {
