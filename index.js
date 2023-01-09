@@ -1,6 +1,9 @@
 import 'dotenv/config'
 import express from 'express'
 import axios from 'axios'
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 const app = express()
 
@@ -23,6 +26,11 @@ app.post('/', async (req, res) => {
       console.log(req.body);
       if(type === 'ended') {
         await sendDiscordMessage(`> the card **${cardName}** has been ended! \n > great job nossos queridos zé gotinhas **${users}**!`)
+        await prisma.user.create({
+          data: {
+            name: users,
+          }
+        })
         return;
       }
       if(type === 'started') {
