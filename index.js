@@ -12,8 +12,8 @@ app.get('/', (req, res) => {
 app.post('/', async (req, res) => {
   try {
       const { cardName, users } = req.body
-      await axios.post('https://discord.com/api/webhooks/1062080343068377190/LGJn2Aoh5LtQypg9_ApKz1wlvo7vDOenRkciPaP2rP4Zqfd5JdMu-dNfj5yE3tZXc_qp', {
-        username: 'Maconhas e drogas',
+      await axios.post('https://discord.com/api/webhooks/1062081387106140251/gzzlfgiOHnIA9JnA_9P_dhbtOxtJkKtKzwDojf8d8KFo1sij2VUFEx5xYTZ5skwFAM9U', {
+        username: 'Spidey Bot',
         content: `the card ${cardName} has been ended!
          great job ${users}`
       })
