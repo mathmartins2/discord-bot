@@ -25,7 +25,7 @@ app.post('/', async (req, res) => {
         return;
       }
       if(type === 'started') {
-        await sendDiscordMessage(`> the card **${cardName}** has been started! \n > good luck **${users}**!`)
+        await sendDiscordMessage(`> the card **${cardName}** has been started! \n > good luck meus companheiros **${users}**!`)
         return;
       }
       return res.status(200)
