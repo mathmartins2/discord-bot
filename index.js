@@ -16,7 +16,7 @@ app.post('/', async (req, res) => {
       console.log(cardName, users);
       await axios.post(process.env.DISCORD_URL, {
         username: 'Spidey Bot',
-        content: `> the card ${cardName} has been ended! \n > great job ${users}`
+        content: `> the card **${cardName}** has been ended! \n > great job **${users}**!`
       })
       res.status(200)
   } catch (error) {
