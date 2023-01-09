@@ -29,6 +29,8 @@ app.post('/', async (req, res) => {
       const { cardName, users, type, message } = req.body
       const usersArr = users.split(',')
       let usersDiscord = usersArr.map(user => discordUsers[user] || user).join(', ')
+      console.log(usersArr, usersDiscord);
+      return
       if(type === 'ended') {
         await sendDiscordMessage(`> the card **${cardName}** has been ended! \n > great job nossos queridos zé gotinhas **${usersDiscord}**!`)
         await prisma.user.create({
