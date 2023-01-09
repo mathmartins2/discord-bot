@@ -2,14 +2,14 @@ import express from 'express'
 
 const app = express()
 
-// app.use(express.json())
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
 app.post('/', (req, res) => {
-  console.log(req);
+  console.log(req.body);
   res.send('Hello World!')
 })
 
