@@ -27,7 +27,7 @@ const discordUsers = {
 app.post('/', async (req, res) => {
   try {
       const { cardName, users, type, message } = req.body
-      const usersArr = users.split(',')
+      const usersArr = users.split(', ')
       let usersDiscord = usersArr.map(user => discordUsers[user] || user).join(', ')
       console.log(usersArr, usersDiscord);
       return
