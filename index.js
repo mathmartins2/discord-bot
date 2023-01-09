@@ -13,7 +13,7 @@ app.post('/', async (req, res) => {
   try {
       const { cardName } = req.body
       await axios.post('https://discord.com/api/webhooks/1062078107814744085/yKfUBPwT-8jxHIzwuu0Fg4YIAXKDoY7-JHpaZA8ZsWAz2p2i3U7yYZ__rm-o02xruBzH', {
-        username: 'Hashnode Bot',
+        username: 'Spidey Bot',
         content: `${cardName}`
       })
       res.status(200)
