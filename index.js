@@ -10,15 +10,25 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+async function sendDiscordMessage(message) {
+  await axios.post(process.env.DISCORD_URL, {
+    username: 'Spidey Bot',
+    content: message
+  })
+}
+
 app.post('/', async (req, res) => {
   try {
-      const { cardName, users } = req.body
-      console.log(cardName, users);
-      await axios.post(process.env.DISCORD_URL, {
-        username: 'Spidey Bot',
-        content: `> the card **${cardName}** has been ended! \n > great job **${users}**!`
-      })
-      res.status(200)
+      const { cardName, users, type } = req.body
+      if(type === 'ended') {
+        await sendDiscordMessage(`> the card **${cardName}** has been ended! \n > great job **${users}**!`)
+        return;
+      }
+      if(type === 'started') {
+        await sendDiscordMessage(`> the card **${cardName}** has been started! \n > good luck **${users}**!`)
+        return;
+      }
+      return res.status(200)
   } catch (error) {
     console.log(error);
   }
