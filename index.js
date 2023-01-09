@@ -23,7 +23,6 @@ async function sendDiscordMessage(message) {
 app.post('/', async (req, res) => {
   try {
       const { cardName, users, type, message } = req.body
-      console.log(req.body);
       if(type === 'ended') {
         await sendDiscordMessage(`> the card **${cardName}** has been ended! \n > great job nossos queridos zé gotinhas **${users}**!`)
         await prisma.user.create({
