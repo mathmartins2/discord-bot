@@ -7,10 +7,11 @@ const validateBody = (req, res, next) => {
   }
   
   if (!types.includes(type)) {
-    if(type === 'any' && !message) {
-      return res.status(400).json({ error: 'Invalid type or message missing' });
-    }
     return res.status(400).json({ error: 'Invalid type' });
+  }
+  
+  if(type === 'any' && !message) {
+    return res.status(400).json({ error: 'Invalid type or message missing' });
   }
   
   next();
