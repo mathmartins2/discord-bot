@@ -21,8 +21,8 @@ app.get('/', (req, res) => {
 app.post('/', async (req, res, next) => {
   try {
       const { cardName, users, type, message } = req.body
-      let usersDiscord = mapUsers(usersArr, discordUsers)
       const usersArr = users.split(', ')
+      let usersDiscord = mapUsers(usersArr, discordUsers)
       switch(type) {
         case 'ended': 
           await sendDiscordMessage(`> the card **${cardName}** has been ended! \n > great job nossos queridos zé gotinhas **${usersDiscord}**!`)
