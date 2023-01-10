@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.post('/', async (req, res) => {
+app.post('/', async (req, res, next) => {
   try {
       const { cardName, users, type, message } = req.body
       let usersDiscord = mapUsers(usersArr, discordUsers)
